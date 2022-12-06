@@ -11,6 +11,7 @@ namespace ConsoleApp1
     {
         Regex match = new Regex(@"[A-Z][a-z]") ;
         Regex checker = new Regex(@"[@][.com]");
+        Regex pass = new Regex(@"[A-Z][a-z][0-9][$&+,:;=?@#|'<>.-^*()%!]");
         public bool validateUsername(string username)
         {
             var check = match.IsMatch(username);
@@ -34,9 +35,10 @@ namespace ConsoleApp1
             return check;
         }
 
-        public void validateGender(string gender) 
+        public bool validatePassword(string password) 
         {
-
+            var check = pass.IsMatch(password);
+            return check;
         }
     }
 }

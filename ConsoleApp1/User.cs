@@ -72,13 +72,19 @@ namespace ConsoleApp1
             Console.WriteLine(Messages.Gender);
             string gender = Console.ReadLine();
             
-
             Console.WriteLine(Messages.Age);
             string ageInput = Console.ReadLine();
             int age = Convert.ToInt32(ageInput);
 
             Console.WriteLine(Messages.Password);
             string password = Console.ReadLine();
+            while(!validate.validatePassword(password))
+            {
+                if (!validate.validatePassword(password))
+                {
+                    Console.WriteLine("Create a valid password!");
+                }
+            }
 
             string id = UniqueId(username, age);
             Console.WriteLine(Messages.UserID + id);
