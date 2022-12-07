@@ -10,8 +10,8 @@ namespace ConsoleApp1
     public class Validations
     {
         Regex match = new Regex(@"[A-Z][a-z]") ;
-        Regex checker = new Regex(@"[@][.com]");
-        Regex pass = new Regex(@"[A-Z][a-z][0-9][$&+,:;=?@#|'<>.-^*()%!]");
+        Regex checker = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        Regex pass = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$");
         public bool validateUsername(string username)
         {
             var check = match.IsMatch(username);

@@ -20,7 +20,6 @@ namespace ConsoleApp1
         {
             Random random = new Random();
             int num = random.Next(100,1000);
-
             return ($"{num}{username}{age}");
         }
 
@@ -41,21 +40,26 @@ namespace ConsoleApp1
 
             Console.WriteLine(Messages.FirstName);
             string firstName = Console.ReadLine();
-            while(validate.validateFirstName(firstName))
+            while(!validate.validateFirstName(firstName))
             {
                 if(!validate.validateFirstName(firstName))
                 {
                     Console.WriteLine("Enter Valid First Name");
+                    Console.WriteLine(Messages.FirstName);
+                    firstName = Console.ReadLine();
                 }
             }
 
             Console.WriteLine(Messages.LastName);
             string lastName = Console.ReadLine();
-            while(validate.validateLastName(lastName))
+            while(!validate.validateLastName(lastName))
             {
                 if(!validate.validateLastName(lastName))
                 {
                     Console.WriteLine("Enter a valid Last Name.");
+                    Console.WriteLine(Messages.LastName);
+                    lastName = Console.ReadLine();
+
                 }
             }
 
@@ -66,6 +70,8 @@ namespace ConsoleApp1
                 if (!validate.validateEmail(Email))
                 {
                     Console.WriteLine("Kindly enter a valid Email address.");
+                    Console.WriteLine(Messages.Email);
+                    Email = Console.ReadLine();
                 }
             }
          
@@ -83,6 +89,8 @@ namespace ConsoleApp1
                 if (!validate.validatePassword(password))
                 {
                     Console.WriteLine("Create a valid password!");
+                    Console.WriteLine(Messages.Password);
+                    password = Console.ReadLine();
                 }
             }
 
